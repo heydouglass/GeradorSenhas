@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "scripts": {
-    "start": "node /views/index.ejs"
+    "start": "node views/index.ejs"
   },
   "keywords": [],
   "author": "",
