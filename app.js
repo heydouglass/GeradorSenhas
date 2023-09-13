@@ -11,6 +11,7 @@ app.set('view engine', 'ejs');
 
 
 const porta = process.env.PORT || 3000;
+const baseURL = "https://gerador-senhas-seven.vercel.app"
 const senhas = [];
 
 app.get('/', (req, res) => {
