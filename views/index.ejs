@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Gerador de Senhas</title>
+</head>
+<body>
+    <h1>Gerador de Senhas</h1>
+    <form action="/generate" method="POST">
+        <label for="length">Comprimento da Senha:</label>
+        <input type="number" id="length" name="length" required min="4" max="128">
+        <br>
+        <label for="usarMaiusculas">Usar Letras Maiúsculas:</label>
+        <input type="checkbox" id="usarMaiusculas" name="usarMaiusculas">
+        <br>
+        <label for="usarMaiusculas">Usar Letras Minúsculas:</label>
+        <input type="checkbox" id="usarMinusculas" name="usarMinusculas">
+        <br>
+        <label for="usarNumeros">Usar Números:</label>
+        <input type="checkbox" id="usarNumeros" name="usarNumeros">
+        <br>
+        <label for="usarEspeciais">Usar Caracteres Especiais:</label>
+        <input type="checkbox" id="usarEspeciais" name="usarEspeciais">
+        <br>
+        <button type="submit">Gerar Senha</button>
+    </form>
+    <h2>Senhas Geradas:</h2>
+    <ul>
+        <% for (const senha of senhas) { %>
+            <li><%- senha %></li>
+        <% } %>
+    </ul>
+</body>
+</html>
