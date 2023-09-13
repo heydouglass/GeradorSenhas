@@ -1,5 +1,6 @@
 const express = require('express');
 const crypto = require('crypto');
+const fs = require('fs');
 const app = express();
 const port = 3000;
 
@@ -35,14 +36,18 @@ app.post('/generate', (req, res) => {
 
     }
 
-    const senha = gerarsenha(length, charset);
+    const senha = gerarSenha(length, charset);
     senhas.push(senha);
+
+
+    salvarSenha(senha);
 
     res.redirect('/');
   }
+
 });
 
-function gerarsenha(length, charset) {
+function gerarSenha(length, charset) {
   const randomBytes = crypto.randomBytes(length);
   const senha = [];
   for (let i = 0; i < length; i++) {
@@ -50,6 +55,16 @@ function gerarsenha(length, charset) {
     senha.push(charset[randomIndex]);
   }
   return senha.join('');
+}
+
+function salvarSenha(senha) {
+  fs.writeFile('senhas.html', senha + '\n', { flag: 'a' }, (err) => {
+    if (err) {
+      console.error('Erro ao salvar a senha no arquivo:', err);
+    } else {
+      console.log('Senha salva no arquivo com sucesso.');
+    }
+  });
 }
 
 app.listen(port, () => {

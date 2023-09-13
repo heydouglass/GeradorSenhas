@@ -25,12 +25,19 @@
         <input type="checkbox" id="usarEspeciais" name="usarEspeciais">
         <br>
         <button type="submit">Gerar Senha</button>
+        <br>
     </form>
+    <a href="/senhas.html" download>
+        <button type="button">Baixar Senhas</button>
+    </a>
+
     <h2>Senhas Geradas:</h2>
     <ul>
         <% for (const senha of senhas) { %>
             <li><%- senha %></li>
         <% } %>
     </ul>
+
 </body>
 </html>
+
