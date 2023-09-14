@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Gerador de Senhas</title>
+    
 </head>
 <body>
+    <div class="senhasGerador">
     <h1>Gerador de Senhas</h1>
     <form action="/generate" method="POST">
         <label for="length">Comprimento da Senha:</label>
-        <input type="number" id="length" name="length" required min="4" max="128">
+        <input class="check" type="number" id="length" name="length" required min="4" max="128">
         <br>
         <label for="usarMaiusculas">Usar Letras Maiúsculas:</label>
-        <input type="checkbox" id="usarMaiusculas" name="usarMaiusculas">
+        <input class="check" type="checkbox" id="usarMaiusculas" name="usarMaiusculas">
         <br>
         <label for="usarMaiusculas">Usar Letras Minúsculas:</label>
-        <input type="checkbox" id="usarMinusculas" name="usarMinusculas">
+        <input class="check" type="checkbox" id="usarMinusculas" name="usarMinusculas">
         <br>
         <label for="usarNumeros">Usar Números:</label>
-        <input type="checkbox" id="usarNumeros" name="usarNumeros">
+        <input class="check" type="checkbox" id="usarNumeros" name="usarNumeros">
         <br>
         <label for="usarEspeciais">Usar Caracteres Especiais:</label>
-        <input type="checkbox" id="usarEspeciais" name="usarEspeciais">
+        <input class="check" type="checkbox" id="usarEspeciais" name="usarEspeciais">
         <br>
-        <button type="submit">Gerar Senha</button>
+        <button  class="btn" type="submit">Gerar Senha</button>
         <br>
     </form>
+</div>
     </a>
-
+    <div class="senhasGeradas">
     <h2>Senhas Geradas:</h2>
     <ul>
         <% for (const senha of senhas) { %>
             <li><%- senha %></li>
         <% } %>
     </ul>
+</div>  
 
 </body>
 </html>
